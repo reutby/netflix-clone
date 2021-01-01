@@ -4,7 +4,7 @@ import React from "react";
 import { Footer } from "../components"
 
 
-export function FooterContainer({ children, ...restProps }) {
+export default function FooterContainer({ children, ...restProps }){
     return (
 
         <Footer>
