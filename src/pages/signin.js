@@ -6,6 +6,8 @@ import FooterContainer from "../containers/footer";
 import { Form } from "../components";
 import { FirebaseContext } from "../context/firebase";
 import * as ROUTES from "../constants/routes";
+
+
 export default function Signin() {
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
@@ -19,12 +21,11 @@ export default function Signin() {
       .auth()
       .signInWithEmailAndPassword(emailAddress, password)
       .then(() => {
-        history.push(ROUTES.SIGN_UP);
+        history.push(ROUTES.BROWSE);
       })
       .catch((error) => {
         setPassword("");
         setEmailAddress("");
-        console.log(error);
         setError(error.message);
       });
     //firebase works here
