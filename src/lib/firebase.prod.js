@@ -1,10 +1,11 @@
+/* eslint-disable no-undef */
 import Firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 // import {seedDatabase} from "../seed";
 
 
-const config = {
+const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "netflix-clone-69fb7.firebaseapp.com",
     projectId: "netflix-clone-69fb7",
@@ -13,7 +14,7 @@ const config = {
     appId: process.env.REACT_APP_FIREBASE_API_ID
 };
 
-const firebase= Firebase.initializeApp(config);
+const firebase= Firebase.initializeApp(firebaseConfig);
 
 //seedDatabase(firebase);
 
