@@ -1,5 +1,9 @@
 import React from "react";
-
-export default function Signup(){
-    return <p>Im in the signup page!</p>
+import HeaderContainer from "../containers/header";
+import FooterContainer from "../containers/footer";
+export default function Signup() {
+  return <>
+    <HeaderContainer bg={false} ></HeaderContainer>
+    <FooterContainer />
+  </>;
 }
