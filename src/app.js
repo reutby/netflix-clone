@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import * as ROUTES from "./constants/routes";
 import { IsUserRedirect, ProtectedRoute } from "./helpers/routes";
@@ -6,9 +7,9 @@ import { Browse, Signin, Signup, Home } from "./pages";
 import {useAuthListener} from "./hooks";
 
 export default function App() {
-
-  const { user } = useAuthListener();
-
+  // const user=null;
+    const { user } = useAuthListener();
+   console.log(user);
   return (
     <BrowserRouter>
       <Switch>
