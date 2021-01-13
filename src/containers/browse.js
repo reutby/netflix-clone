@@ -1,12 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState, useEffect } from 'react';
-import { Header, Loading, Card } from '../components';
+import { Header, Loading, Card ,Player } from '../components';
 import SelectProfileContainer from '../containers/profiles';
 import FooterContainer from "./footer";
 import { FirebaseContext } from '../context/firebase';
 import * as ROUTES from '../constants/routes';
 import logo from '../logo.svg';
+
 // eslint-disable-next-line react/prop-types
 export default function BrowseContainer({ slides }) {
     const [category, setCategory] = useState('series');
@@ -105,7 +106,10 @@ export default function BrowseContainer({ slides }) {
                         ))}
                     </Card.Entities>
                     <Card.Feature category = {category}>
-                        
+                        <Player>
+                            <Player.Button />
+                            <Player.Video src = "/videos/bunny.mp4"/>
+                        </Player>
                     </Card.Feature>
                 </Card>
             ))}
