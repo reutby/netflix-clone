@@ -9,7 +9,6 @@ import {useAuthListener} from "./hooks";
 export default function App() {
   // const user=null;
     const { user } = useAuthListener();
-   console.log(user);
   return (
     <BrowserRouter>
       <Switch>

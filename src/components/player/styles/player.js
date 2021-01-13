@@ -28,42 +28,6 @@ export const Inner =styled.div `
     }
 `;
 
-export const Close =styled.button `
-    position:absolute;
-    right:15px;
-    top:15px;
-    width:22px;
-    height:22px;
-    opacity:0.3;
-    background-color:transparent;
-    border:0;
-    cursor:pointer;
-
-    &:hover{
-        opacity:1;
-    }
-    &:before,
-    &:after {
-        position:absolute;
-        left:10px;
-        top:0;
-        content:' ';
-        height:22px;
-        width:22px;
-        background-color:#333;
-    }
-
-    &:before {
-        transform: rotate(45deg);
-
-    }
-
-    &:after {
-        transform: rotate(-45deg);
-
-    }
-
-`;
 
 export const Button =styled.button `
     background-color:#e50914;

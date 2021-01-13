@@ -4,10 +4,10 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Header, Loading, Card ,Player } from '../components';
 import SelectProfileContainer from '../containers/profiles';
 import FooterContainer from "./footer";
+import logo from "../logo.svg";
 import { FirebaseContext } from '../context/firebase';
 import * as ROUTES from '../constants/routes';
-import logo from '../logo.svg';
-
+import Fuse from "fuse.js";
 // eslint-disable-next-line react/prop-types
 export default function BrowseContainer({ slides }) {
     const [category, setCategory] = useState('series');
@@ -19,10 +19,9 @@ export default function BrowseContainer({ slides }) {
 
     
     const user = firebase.auth().currentUser || {};
-    console.log('user', user.displayName);
+    
     useEffect(() => {
-        console.log('profile', profile);
-
+        
         setTimeout(() => {
             setLoading(false);
         }, 3000);
@@ -31,6 +30,16 @@ export default function BrowseContainer({ slides }) {
     useEffect(()=>{
         setSlideRows(slides[category])
     },[slides,category]);
+
+    useEffect(()=>{
+        const fuse = new Fuse(slideRows, {keys:['data.description','data.title', 'data.genre'],});
+        const results = fuse.search(searchTerm).map(({item})=>item);
+        if(slideRows.length > 0 && searchTerm.length > 3 && results.length > 0){
+            setSlideRows(results);
+        }else{
+            setSlideRows(slides[category]);
+        }
+    }, [searchTerm])
 
     return profile.displayName ? (
         <>
